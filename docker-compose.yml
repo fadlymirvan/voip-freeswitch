@@ -1,0 +1,20 @@
+services:
+  freeswitch:
+    build: .
+    container_name: freeswitch-prod
+    restart: unless-stopped
+    ports:
+      - "5060:5060/udp"
+      - "5060:5060/tcp"
+      - "5080:5080/udp"
+      - "5080:5080/tcp"
+      - "8021:8021/tcp"
+      - "16384-16404:16384-16404/udp"
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    environment:
+      - FREESWITCH_PASSWORD=ClueCon
+    volumes:
+      - ./freeswitch-config/autoload_configs/event_socket.conf.xml:/usr/local/freeswitch/conf/autoload_configs/event_socket.conf.xml
+      - ./freeswitch-config/sip_profiles/internal.xml:/usr/local/freeswitch/conf/sip_profiles/internal.xml

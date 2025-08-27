@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document type="freeswitch/xml">
+  <section name="configuration">
+    <configuration name="switch.conf" description="Core Configuration"/>
+  </section>
+
+  <section name="dialplan" description="Dial Plan">
+    <X-PRE-PROCESS cmd="include" data="dialplan/*.xml"/>
+  </section>
+
+  <section name="directory" description="User Directory">
+    <X-PRE-PROCESS cmd="include" data="directory/*.xml"/>
+  </section>
+
+  <section name="sip_profiles" description="SIP Profiles">
+    <X-PRE-PROCESS cmd="include" data="sip_profiles/*.xml"/>
+  </section>
+</document>
